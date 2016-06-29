@@ -18,11 +18,14 @@ Once you've successfully set your credentials in the Terminal, you should be all
 - `npm install`
 - `nodemon`
 
-#### Step 4: Retrieve a compliment from the database
-- All the work you need to do is inside the `/routes/index.js` file. Go find the route inside that file where you'll need to display a compliment from the database.
+#### Step 4: Set up your model
+- The model file in `models/compliment.js` is basically empty. You'll need to set this up in order to use the Compliment model in later files. Read through the [notes from the walkthrough](https://github.com/ga-students/wdi-atx-6-class/tree/master/w05/d03/afternoon) for hints.
+
+#### Step 5: Retrieve a compliment from the database
+- Now, all the work you need to do is inside the `/routes/index.js` file. Go find the route inside that file where you'll need to display a compliment from the database.
 - Use your Mongo/Mongoose skillz to retrieve a random compliment from the database, and pass it to the view. The view itself has already been created.
 
-#### Step 5: Save a compliment to the database
+#### Step 6: Save a compliment to the database
 - Find the route where the form for creating a compliment is POSTed to. Take the compliment that is sent through that form, and use Mongo to save it to the database. Once that is done successfully, redirect the user to the homepage.
 
 
