@@ -32,3 +32,7 @@ Once you've successfully set your credentials in the Terminal, you should be all
 ## Tips
 - Remember, database calls in Node are done **asynchronously**. That means that whenever you make a call to the database, anything that relies upon that data will need to happen in a **callback**.
 - Check out the [Mongoose documentation](http://mongoosejs.com/docs/guide.html) or [examples of Mongoose and Express](http://code.runnable.com/U0MpcpIzdaRkX2VH/querying-mongodb-from-express-using-mongoose-for-node-js) together to get a sense of what to write.
+
+## Licensing
+All content is licensed under a CC­BY­NC­SA 4.0 license.
+All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
