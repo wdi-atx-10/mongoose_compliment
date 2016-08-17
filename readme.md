@@ -10,7 +10,7 @@ We're going to revisit the Emergency Compliment app from a couple nights ago, ex
 #### Step 2: Set up Mongolab credentials
 - We're going to be contacting a database on Mongolab's servers for this. In order to do so, we need to set up our database credentials. We'll use environment variables to hide the credentials so they don't appear in Github, like we always do.
 
-Create a database instance on your mLab account, then once it's created go find the connection string (it looks something like this: `mongodb://<dbuser>:<dbpassword>@ds055574.mlab.com:55574/<r_database_name>`, where you replace <dbuser>, <dbpassword> and <r_database_name> with your username, password and database name respectively). Copy that string. Then do `subl ~/.bash_profile`. At the bottom of the file, add a line that says `export WDI_COMPLIMENT_DB=<your-mongo-connection-string>`. Then close and reopen the Terminal.
+Create a database instance on your mLab account, then once it's created go find the connection string (it looks something like this: `mongodb://<dbuser>:<dbpassword>@ds055574.mlab.com:55574/<r_database_name>`, where you replace <dbuser>, <dbpassword> and <r_database_name> with your username, password and database name respectively). Copy that string. Then do `atom ~/.bash_profile`. At the bottom of the file, add a line that says `export WDI_COMPLIMENT_DB=<your-mongo-connection-string>`. Then close and reopen the Terminal.
 
 Once you've successfully set your credentials in the Terminal, you should be all set to connect to mLab your app.
 
