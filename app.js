@@ -10,6 +10,11 @@ var routes = require('./routes/index');
 
 var app = express();
 
+var mongoose = require('mongoose');
+
+// TODO: You will need to set up an environment variable and use the dotenv package
+//mongoose.connect(process.env.WDI_COMPLIMENT_DB);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -21,10 +26,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-var mongoose = require('mongoose');
-mongoose.connect(process.env.WDI_COMPLIMENT_DB);
-
 
 app.use('/', routes);
 
