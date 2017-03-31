@@ -51,16 +51,12 @@ router.post('/', function(req, res, next){
       });
     }
     else {
-      res.json({
-        status: 'OK',
-        compliment : compliment
-      });
 			console.log('compliment submitted', compliment);
+			res.redirect('/');
     }
   //end new.Compliment
   });
 	// USE MONGOOSE TO SAVE A NEW COMPLIMENT TO THE DATABASE, THEN REDIRECT TO THE ROOT URL
-	res.redirect('/');
 //end router.post
 });
 

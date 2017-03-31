@@ -1,8 +1,40 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 0 25%;
+}
+
+.comp {
+  font-size: 200%;
+  text-decoration: underline;
+  font-weight: bold;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
+}
+
+.wrap {
+  background: rgba(211,211,211, 0.8);
+  padding: 5%;
+}
+
+h1 {
+  text-shadow: 4px 4px 2px rgba(211,211,211, 0.8);
+}
+
+p, h1, footer {
+  text-align: center;
+}
+
+button {
+  margin-top: 5%;
+  margin-left: 20%;
+  font-size: 0.9em;
+}
+
+footer {
+  padding-top: 25%;
 }
