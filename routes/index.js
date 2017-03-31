@@ -24,7 +24,7 @@ router.get('/(:name)?', function(req, res, next) {
 			console.log(compliment);
 	});
 
-	var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
+	// var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
 	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: compliment });
 });
 
@@ -37,7 +37,7 @@ router.post('/', function(req, res, next) {
 			else{
 				console.log(compliment);
 			res.redirect('/');
-		};
+		}
 	});
 
 	// USE MONGOOSE TO SAVE A NEW COMPLIMENT TO THE DATABASE, THEN REDIRECT TO THE ROOT URL

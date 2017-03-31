@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var compSchema = new mongoose.Schema({
-	body : { type: String, required: true },
+	compliment : { type: String, required: true },
 });
 
 
