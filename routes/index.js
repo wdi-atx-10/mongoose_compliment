@@ -19,18 +19,12 @@ router.get('/(:name)?', function(req, res, next) {
 	name = req.params.name || "Friend";
 	var color = randomColor();
 
-	var compliment =  {
-    state: 'OK',
-    rnd: {
-        $gte: Math.random()
-    }
-	};
 
-	var randomCompliment = db.myCollection.findOne(compliment);
-
-	Compliment.find({}, function(err, randomCompliment) {
-  if (err) console.log(err);
-  console.log(randomCompliment);
+	Compliment.findOneRandom(function(err, random) {
+  	if (!err) {
+    	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: random.compliment });
+			console.log('random');
+  	}
 	});
 
 
@@ -38,7 +32,7 @@ router.get('/(:name)?', function(req, res, next) {
 
 	// var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
 
-	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: randomCompliment });
+
 });
 
 /* POST compliment. */
@@ -51,13 +45,13 @@ router.post('/', function(req, res, next){
 
   newCompliment.save(function(err, compliment){
     if (err){
-      res.status(500).send({
+      res.send({
         status : 'Error',
         error : err
       });
     }
     else {
-      res.status(200).json({
+      res.json({
         status: 'OK',
         compliment : compliment
       });
