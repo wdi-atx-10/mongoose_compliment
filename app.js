@@ -11,9 +11,7 @@ var routes = require('./routes/index');
 var app = express();
 
 var mongoose = require('mongoose');
-
-// TODO: You will need to set up an environment variable and use the dotenv package
-//mongoose.connect(process.env.WDI_COMPLIMENT_DB);
+mongoose.connect(process.env.EMERGENCY_COMPLIMENT_CONN_STRING);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
