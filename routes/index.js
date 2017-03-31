@@ -19,14 +19,26 @@ router.get('/(:name)?', function(req, res, next) {
 	name = req.params.name || "Friend";
 	var color = randomColor();
 
+	var compliment =  {
+    state: 'OK',
+    rnd: {
+        $gte: Math.random()
+    }
+	};
+
+	var randomCompliment = db.myCollection.findOne(compliment);
+
+	Compliment.find({}, function(err, randomCompliment) {
+  if (err) console.log(err);
+  console.log(randomCompliment);
+	});
+
+
 	// USE MONGOOSE TO GET A RANDOM COMPLIMENT FROM THE DATABASE, THEN RENDER THE VIEW
 
-	var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
-	Compliment.find({}, function (err, compliment) {
-		if (err) console.log("err : ", err);
-		res.json(compliment);
-	});
-	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: compliment });
+	// var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
+
+	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: randomCompliment });
 });
 
 /* POST compliment. */
