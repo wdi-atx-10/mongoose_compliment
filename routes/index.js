@@ -19,8 +19,12 @@ router.get('/(:name)?', function(req, res, next) {
 	var color = randomColor();
 
 	// USE MONGOOSE TO GET A RANDOM COMPLIMENT FROM THE DATABASE, THEN RENDER THE VIEW
+	Compliment.findById(Math.floor(Math.random(compliment)), function(err, compliment){
+		if (err){console.log(err)}
+			console.log(compliment);
+	});
 
-	var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
+	// var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
 	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: compliment });
 });
 
@@ -28,8 +32,16 @@ router.get('/(:name)?', function(req, res, next) {
 router.post('/', function(req, res, next) {
 	var newCompliment = req.body.compliment;
 
+	newCompliment.save(function(err, compliment){
+		if (err){console.log(err)}
+			else{
+				console.log(compliment);
+			res.redirect('/');
+		}
+	});
+
 	// USE MONGOOSE TO SAVE A NEW COMPLIMENT TO THE DATABASE, THEN REDIRECT TO THE ROOT URL
-	res.redirect('/');
+	
 });
 
 module.exports = router;
