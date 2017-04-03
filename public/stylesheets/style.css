@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'PT Sans', sans-serif;
   color: white;
   margin: 0 25%;
 }
@@ -16,9 +19,11 @@ a {
   color: #00B7FF;
 }
 
+
 .wrap {
   background: rgba(211,211,211, 0.8);
   padding: 5%;
+  border: 2px dashed white;
 }
 
 h1 {
@@ -29,12 +34,36 @@ p, h1, footer {
   text-align: center;
 }
 
-button {
+button, .submit {
   margin-top: 5%;
-  margin-left: 20%;
-  font-size: 0.9em;
+  margin-left: 18%;
+  font-size: 1em;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  padding: 0.8em;
+  border: 2px solid white;
+}
+
+button:hover, .submit:hover {
+  background-color: darkgrey;
 }
 
 footer {
   padding-top: 25%;
+}
+
+/*compliment submit form styling*/
+.text-box{
+  padding: 4%;
+}
+
+form{
+  background: rgba(211,211,211, 0.8);
+  padding: 5%;
+  border: 2px dashed white;
+}
+
+form input{
+  margin-left: 20%;
 }

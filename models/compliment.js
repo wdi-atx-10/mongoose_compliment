@@ -1,14 +1,12 @@
-// How can we set up the Compliment model to talk to our database?
-// Look at past examples
 var mongoose = require('mongoose');
-var random = require('mongoose-simple-random');
+var random = require('mongoose-simple-random'); //randomizes data
 
 
 var schema = new mongoose.Schema({
   compliment : {type: String, required: true}
 });
 
-schema.plugin(random);
+schema.plugin(random); //utilizing mongoose-simple-random
 var Compliment = mongoose.model('Compliment', schema);
 
 // Make this available to our other files
