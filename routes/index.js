@@ -7,6 +7,7 @@ function randomColor() {
 	return colors[Math.floor(Math.random()*colors.length)];
 }
 
+
 /* GET compliment form. */
 router.get('/compliment_form', function(req, res, next) {
 	var color = randomColor();
@@ -18,18 +19,37 @@ router.get('/(:name)?', function(req, res, next) {
 	name = req.params.name || "Friend";
 	var color = randomColor();
 
-	// USE MONGOOSE TO GET A RANDOM COMPLIMENT FROM THE DATABASE, THEN RENDER THE VIEW
 
-	var compliment = null; // this line is just here to temporarily prevent an undefined error. You can remove it once you get a real compliment from the DB.
-	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: compliment });
+	Compliment.findOneRandom(function(err, random) {
+  	if (!err) {
+    	res.render('index', { title: 'WDI Emergency Compliment', color: color, name: name, compliment: random.compliment });
+			console.log('random');
+  	}
+	});
 });
 
 /* POST compliment. */
-router.post('/', function(req, res, next) {
-	var newCompliment = req.body.compliment;
+router.post('/', function(req, res, next){
+  var newCompliment = new Compliment({
+    compliment : req.body.compliment
+  });
 
-	// USE MONGOOSE TO SAVE A NEW COMPLIMENT TO THE DATABASE, THEN REDIRECT TO THE ROOT URL
-	res.redirect('/');
+  newCompliment.save(function(err, compliment){
+    if (err){
+      res.send({
+        status : 'Error',
+        error : err
+      });
+    }
+    else {
+			console.log('compliment submitted', compliment);
+			res.redirect('/');
+    }
+  //end new.Compliment
+  });
+//end router.post
 });
+
+
 
 module.exports = router;

@@ -11,6 +11,10 @@ var routes = require('./routes/index');
 var app = express();
 
 var mongoose = require('mongoose');
+mongoose.connect(process.env.WDI_COMPLIMENT_DB);
+
+//plugin that randomizes documents using mongoose, installed using npm install mongoose-simple-random --save
+var random = require('mongoose-simple-random');
 
 // TODO: You will need to set up an environment variable and use the dotenv package
 //mongoose.connect(process.env.WDI_COMPLIMENT_DB);
