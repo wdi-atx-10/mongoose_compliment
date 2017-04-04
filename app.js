@@ -1,4 +1,5 @@
 require('dotenv').config({silent: true});
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,7 +14,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 // TODO: You will need to set up an environment variable and use the dotenv package
-//mongoose.connect(process.env.WDI_COMPLIMENT_DB);
+mongoose.connect(process.env.complimentsdbconn);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
 
